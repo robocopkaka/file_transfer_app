@@ -1,0 +1,29 @@
+// Place all the styles related to the Documents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.upload-document {
+  padding: 20vh 0;
+  width: 50%;
+  margin: auto;
+}
+
+.document-preview {
+  padding: 20px 0;
+
+  #file-name {
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+
+  #file-preview {
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+
+  #single-document {
+    padding: 20px 0;
+  }
+}

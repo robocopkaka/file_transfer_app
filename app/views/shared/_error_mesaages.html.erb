@@ -1,0 +1,10 @@
+<% if document.errors.any? %>
+  <div>
+    <h2><%= pluralize(document.errors.count, "error") %> came up when trying to upload</h2>
+  </div>
+  <ul>
+    <% document.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  </ul>
+<% end %>
