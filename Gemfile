@@ -26,6 +26,8 @@ gem 'jquery-rails'
 gem 'jquery-fileupload-rails', github: 'Springest/jquery-fileupload-rails'
 # down gem for handling downloads
 gem 'down'
+# devise gem for authentication
+gem 'devise'
 # redis gem
 gem 'redis'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

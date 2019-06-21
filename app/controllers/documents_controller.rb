@@ -1,10 +1,12 @@
 class DocumentsController < ApplicationController
+  before_action :authenticate_user!, only: %i[show]
+  before_action :find_document, only: %i[download]
   def new
     @document = Document.new
   end
 
   def create
-    @document = Document.new(document_params)
+    @document = current_user.documents.build(document_params)
     if @document.save
       flash[:success] = 'Document uploaded successfully'
       redirect_to documents_path
@@ -14,24 +16,21 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = Document.all
+    @documents = current_user.documents
   end
 
   def show
-    @document = Document.find_by(id: params[:id])
+    @document = current_user.documents.find_by(id: params[:id])
   end
 
   def download
-    @document = Document.find_by(id: params[:id])
-    # binding.pry
     @length = 0
     @progress = 0
     tempfile = Down.download @document.file.service_url,
-      content_length_proc: -> (content_length) do
+      content_length_proc: ->(content_length) do
         @length = content_length
-        # ActionCable.server.broadcast 'download_progress_channel', length: content_length
       end,
-      progress_proc: -> (progress) do
+      progress_proc: ->(progress) do
         ActionCable.server.broadcast 'download_progress_channel',
                                      progress: progress,
                                      length: @length,
@@ -43,5 +42,9 @@ class DocumentsController < ApplicationController
 
   def document_params
     params.require(:document).permit(:name, :file)
+  end
+
+  def find_document
+    @document = Document.find_by(id: params[:id])
   end
 end
