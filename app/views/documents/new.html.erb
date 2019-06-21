@@ -1,5 +1,6 @@
 <%= form_for @document, html: { class: "upload-document" } do |f| %>
   <%= render 'shared/error_mesaages', document: @document %>
+  <%= render 'shared/progress_bar'  %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>

@@ -11,19 +11,29 @@
 .document-preview {
   padding: 20px 0;
 
-  #file-name {
-    font-size: 30px;
-    font-weight: bold;
-    padding-bottom: 10px;
+  .card {
+    margin: 20px 0;
+    #show-progress {
+      .progress {
+        width: 400px;
+      }
+    }
   }
+}
 
-  #file-preview {
-    font-size: 30px;
-    font-weight: bold;
-    padding-bottom: 10px;
-  }
+#files-header {
+  padding-top: 20px;
+  text-align: center;
+}
 
-  #single-document {
-    padding: 20px 0;
+.single-document {
+  padding-top: 100px;
+  .card {
+    margin: 20px 0;
+    #show-progress {
+      .progress {
+        width: 400px;
+      }
+    }
   }
 }
