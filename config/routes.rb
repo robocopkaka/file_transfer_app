@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :documents
+  resources :documents do
+    member do
+      get :download
+    end
+  end
 
   root to: 'documents#new'
 end

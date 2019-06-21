@@ -22,6 +22,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # jQuery-rails
 gem 'jquery-rails'
+# jQuery file upload
+gem 'jquery-fileupload-rails', github: 'Springest/jquery-fileupload-rails'
+# down gem for handling downloads
+gem 'down'
+# redis gem
+gem 'redis'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

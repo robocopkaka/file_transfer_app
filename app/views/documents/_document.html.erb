@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row document" id="document-<%= document.id %>">
+      <div class="col-4">
+        <span id="document-name"><%= document.name %></span>
+      </div>
+      <div class="col-4">
+        <% if document.file.previewable? %>
+          <%= image_tag(document.file.preview(resize: '200x200')) %>
+        <% elsif document.file.variable? %>
+          <%= image_tag(document.file.variant(resize: '200x200')) %>
+        <% end %>
+      </div>
+      <div class="col-4">
+        <% if document.file.attached? %>
+          <%= link_to "Download File", download_document_path(document), id: "show-click", remote: true %>
+        <% end %>
+      </div>
+      <div id="show-progress">
+        <%= render 'shared/progress_bar' %>
+      </div>
+    </div>
+  </div>
+</div>

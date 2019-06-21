@@ -1,25 +1,6 @@
+<h2 id="files-header">Downloaded files</h2>
+
 <div class="document-preview">
-  <div class="row">
-    <div class="col-4" id="file-name">File name</div>
-    <div class="col-4" id="file-preview">File preview</div>
-  </div>
-  <% @documents.each do |document| %>
-    <div class="row" id="single-document">
-      <div class="col-4">
-        <span id="document-name"><%= document.name %></span>
-      </div>
-      <div class="col-4">
-        <% if document.file.previewable? %>
-          <%= image_tag(document.file.preview(resize: '300x300')) %>
-        <% elsif document.file.variable? %>
-          <%= image_tag(document.file.variant(resize: '300x300')) %>
-        <% end %>
-      </div>
-      <div class="col-4">
-        <% if document.file.attached? %>
-         <%= link_to("Download File", rails_blob_path(document.file, disposition: "attachment")) %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'shared/progress_bar'  %>
+  <%= render @documents %>
 </div>
